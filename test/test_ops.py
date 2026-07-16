@@ -1,5 +1,5 @@
 import pytest
-from calc.ops import sum
+from calc.ops import add, multiply
 
 @pytest.mark.parametrize(
     "a,b,expected",
@@ -12,4 +12,17 @@ from calc.ops import sum
     ],
 )
 def test_add(a,b,expected):
-    assert sum(a,b) == expected
+    assert add(a,b) == expected
+
+
+@pytest.mark.parametrize(
+    "a,b,expected",
+    [
+        (1,2,2),
+        (-5,5,-25),
+        (2.5,0.5,1.25),
+        (10,-3,-30)
+    ],
+)
+def test_multiply(a,b,expected):
+    assert multiply(a,b) == expected
